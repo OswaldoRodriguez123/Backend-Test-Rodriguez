@@ -19,7 +19,7 @@ python manage.py migrate
 apt-get install redis-server
 ```
 
-## Add file .venv
+## Add file .env
 ```
 SECRET_KEY = "django-insecure-z#ri$h(c19u+ro(u0r$f6jw&7@ye@agbfq2v!!)vq2(x%6k435"
 TOKEN_SLACK = "YOUR TOKEN SLACK"
@@ -55,8 +55,11 @@ User: nora
 Password:1234
 ```
 
-## Menu
+## Menu to order
 http://localhost:8000/menu/258ca5e6-75c0-4b36-a8dc-97a95e1f8c03
 
+## To check order
+http://localhost:8000/orders
+
 ## Test
-python manage.py test menu
+python manage.py test
