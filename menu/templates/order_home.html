@@ -1,0 +1,68 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+{% block body %}
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">
+                <a href="#">Orders</a>
+            </li>
+        </ol>
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Data
+            </div>
+            <div class="card-body">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Menu</th>
+                                <th>Option</th>
+                                <th>Details</th>
+                                <th>Document</th>
+                                <th>Employee</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>{{ order.created_at|date:"d-m-Y" }}</td>
+                                    <td>{{ order.option.menu.name }}</td>
+                                    <td>{{ order.option.food.name }}</td>
+                                    <td>{{ order.details }}</td>
+                                    <td>{{ order.employee_document}}</td>
+                                    <td>{{ order.employee_name}}</td>
+                                    <td>
+                                        {% if order.viewed == False %} 
+                                            <a class="btn btn-sm btn-success" href="{% url 'order_view' id=order.id %}"><span class="fa fa-pepper-hot"></span> Ready</a>
+                                            <a class="btn btn-sm btn-primary" href="{% url 'order_edit' id=order.id %}"><span class="fa fa-edit"></span> Edit</a>
+                                            <a class="btn btn-sm btn-danger" href="{% url 'order_delete' id=order.id %}"><span class="fa fa-trash"></span> Delete</a>
+                                        {% else %}
+                                            <i class="fa fa-check text-success"></i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</div>
+{% endblock %}
+{% block javascript %}
+{% endblock %}

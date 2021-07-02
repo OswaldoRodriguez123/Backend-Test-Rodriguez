@@ -1,0 +1,49 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+
+{% block body %}
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'food_home' %}">Food</a>
+                </li>
+                <li class="breadcrumb-item active">Add</li>
+            </ol>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Fields
+                </div>
+                <div class="card-body">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    <form class="form-horizontal" action="{{ data.action }}" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{ data.id }}">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="form-label-group">
+                                        <input class="form-control" type="text" name="name" value="{{ data.name }}" id="name">
+                                        <label for="name">Name</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row pt-2">
+                                <div class="col-md-6">
+                                    <button class="btn btn-primary btn-block" type="submit">Submit<span></span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

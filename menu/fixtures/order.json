@@ -1,0 +1,15 @@
+[
+  {
+    "model": "menu.order",
+    "pk": 1,
+    "fields": {
+      "employee_document": "26339939-0",
+      "employee_name": "Oswaldo",
+      "option": 1,
+      "details": "no tomatoes in the salad",
+      "viewed": true,
+      "created_at": "2021-06-28T18:44:23.485Z",
+      "updated_at": "2021-06-28T18:44:23.485Z"
+    }
+  }
+]

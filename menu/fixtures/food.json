@@ -1,0 +1,38 @@
+[
+    {
+      "model": "menu.food",
+      "pk": 1,
+      "fields": {
+        "name": "Corn pie, Salad and Dessert",
+        "created_at": "2021-06-28T12:18:36.549Z",
+        "updated_at": "2021-06-28T12:18:36.549Z"
+      }
+    },
+    {
+      "model": "menu.food",
+      "pk": 2,
+      "fields": {
+        "name": "Chicken Nugget Rice, Salad and Dessert",
+        "created_at": "2021-06-28T12:18:36.549Z",
+        "updated_at": "2021-06-28T12:18:36.549Z"
+      }
+    },
+    {
+      "model": "menu.food",
+      "pk": 3,
+      "fields": {
+        "name": "Rice with hamburger, Salad and Dessert",
+        "created_at": "2021-06-28T12:18:36.549Z",
+        "updated_at": "2021-06-28T12:18:36.549Z"
+      }
+    },
+    {
+      "model": "menu.food",
+      "pk": 4,
+      "fields": {
+        "name": "Premium chicken Salad and Dessert",
+        "created_at": "2021-06-28T12:18:36.549Z",
+        "updated_at": "2021-06-28T12:18:36.549Z"
+      }
+    }
+  ]

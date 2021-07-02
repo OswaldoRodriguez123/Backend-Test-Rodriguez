@@ -1,0 +1,58 @@
+{% extends 'layout/app.html' %}
+
+{% load static %}
+{% block body %}
+<div id="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">
+                <a href="#">Menu</a>
+            </li>
+        </ol>
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Data
+                <a class="btn btn-sm btn-success" style="float:right" href="{% url 'menu_add' %}" ><i class="fa fa-plus"></i> ADD</a>
+            </div>
+            <div class="card-body">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for menu in menus %}
+                            <tr>
+                                <td>{{ menu.name }}</td>
+                                <td>{{ menu.date|date:"d-m-Y" }}</td>
+                                <td>
+                                    <a class="btn btn-sm btn-success" href="{% url 'option_home' menu_id=menu.id %}"> <span class="fa fa-pepper-hot"></span> Options</a>
+                                    <a class="btn btn-sm btn-warning" href="{% url 'menu_send' id=menu.id %}"> <span class="fa fa-envelope"></span> Send</a>
+                                    <a class="btn btn-sm btn-primary" href="{% url 'menu_edit' id=menu.id %}"> <span class="fa fa-edit"></span> Edit</a>
+                                    <a class="btn btn-sm btn-danger" href="{% url 'menu_delete' id=menu.id %}"><span class="fa fa-trash"></span> Delete</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</div>
+{% endblock %}
+{% block javascript %}
+{% endblock %}
